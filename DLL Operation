@@ -1,1 +1,37 @@
-#include<>
+// DLL.cpp : Defines the entry point for the DLL application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+#include "dll.h"
+#include "...\lib.h"
+#pragma comment(lib,"...\\Lib.lib") 
+
+int addD(int a, int b)
+{  
+    return a+b;
+} 
+
+BOOL APIENTRY DllMain( HANDLE hModule, 
+                       DWORD  ul_reason_for_call, 
+                       LPVOID lpReserved
+					           )
+{
+
+	HANDLE g_hModule; 
+    switch(ul_reason_for_call) 
+    { 
+    case DLL_PROCESS_ATTACH: 
+        cout<<"Dll is attached!"<<endl; 
+        g_hModule = (HINSTANCE)hModule; 
+        break; 
+    case DLL_PROCESS_DETACH: 
+        cout<<"Dll is detached!"<<endl; 
+        g_hModule=NULL; 
+        break; 
+    } 
+    return TRUE;
+}
+
+
