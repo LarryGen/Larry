@@ -6,7 +6,7 @@
 int main(int argc, char *argv[])
 {
 	HINSTANCE hDll; //DLL句柄 
-	hDll = LoadLibrary("E:\\1提上日程\\1项目\\DLL\\Debug\\DLL.dll");
+	hDll = LoadLibrary("...\\DLL.dll");
 	printf("DLL is Loaded\n");
 	typedef int ( *PROCSUM)(int, int);  
   PROCSUM procSum;    // 指定DLL模块中导出模块的地址 
